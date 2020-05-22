@@ -5,15 +5,14 @@ int binarySearch(int a[], int item, int low, int high)
 { 
     if (high <= low) 
         return (item > a[low])?  (low + 1): low; 
-  
+    
     int mid = (low + high)/2; 
-  
+    
     if(item == a[mid]) 
         return mid+1; 
-  
+    
     if(item > a[mid]) 
         return binarySearch(a, item, mid+1, high); 
-    
     
     return binarySearch(a, item, low, mid-1); 
 } 
@@ -27,13 +26,8 @@ void insertionSort(int a[], int n)
     for (i = 1; i < n; ++i) 
     {   temp = a[i];
         j = i - 1; 
-        
-  
-       
-        loc = binarySearch(a,temp, 0, j);  // find location where selected sould be inseretd 
-  
-       
-        while (j >= loc)    // Move all elements after location to create space 
+        loc = binarySearch(a,temp, 0, j);              // find location where selected sould be inseretd 
+        while (j >= loc)                              // Move all elements after location to create space 
         { 
             a[j+1] = a[j]; 
             j--; 
@@ -42,7 +36,6 @@ void insertionSort(int a[], int n)
     } 
 } 
   
-
 int main() 
 { 
     
